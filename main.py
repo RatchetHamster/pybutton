@@ -1,7 +1,6 @@
 import subprocess
-import RPi.GPIO as GPIO
+from gpiozero import Button
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.wait_for_edge(23, GPIO.FALLING)
+button = Button(23)
+button.wait_for_press()
 subprocess.call(['sudo reboot -h now'], shell=True)
