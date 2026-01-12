@@ -1,40 +1,8 @@
-Connect momentary switch on pin 23 and ground. 
-
-TO RUN AT START UP AS SERVICE: 
-
-sudo nano /etc/systemd/system/pi_button_shutdown.service
-
-"""
-
-[Unit]
-
-Description=Button Power Control (gpiozero)
-
-After=multi-user.target
-
-
-
-[Service]
-
-ExecStart=/usr/bin/python3 /home/pi/python/pi_button_shutdown/main.py
-
-Restart=always
-
-User=root
-
-
-[Install]
-
-WantedBy=multi-user.target
-
-"""
-
-
-ENABLE SERVICE AT STARTUP:
-
-sudo systemctl daemon-reload
-
-sudo systemctl enable pi_button_shutdown
-
-sudo systemctl start pi_button_shutdown
-
+#cd into /home/pi/python (if python doesn't exist, make it)
+#git clone this repo
+#
+#Make install_servie.sh executable
+#chmod u+x /home/pi/python/pi_button_shutdown/install_service.sh
+#
+#Execute install_service.sh
+# sudo /home/pi/python/pi_button_shutdown/install_service.sh
