@@ -1,0 +1,11 @@
+[Unit]
+Description=Button Power Control (gpiozero)
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/python/pi_button_shutdown/main.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
