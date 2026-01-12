@@ -1,8 +1,16 @@
+## To Update  
+cd /home/pi/python/pi_button_shutdown
+git pull
+sudo reboot  
+
+## To Install  
 cd into /home/pi/python (if python doesn't exist, make it)  
 git clone this repo  
 
-Make install_servie.sh executable  
-chmod u+x /home/pi/python/pi_button_shutdown/install_service.sh  
+#Move .service file to correct location  
+sudo mv /home/pi/python/pi_button_shutdown/pi_button_shutdown.service /etc/systemd/system/  
 
-Execute install_service.sh  
-/home/pi/python/pi_button_shutdown/install_service.sh  
+#Enable service at boot  
+sudo systemctl daemon-reload  
+sudo systemctl enable pi_button_shutdown  
+sudo systemctl start pi_button_shutdown  
